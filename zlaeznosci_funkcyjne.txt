@@ -1,18 +1,18 @@
 Zad. 1
 
 id_produktu->nazwa_produktu, cena_produktu, VAT
-id_klienta->nazwa_klienta, data_zamowienia
+id_klienta->nazwa_klienta, data_zamowienia, id_produktu
 suma_netto, VAT->suma_brutto
+nazwa_produktu->VAT
 id_produktu, id_klienta->ilosc
 
 Zad. 2
 
 Proste:
-id_produktu
 id_klienta
 Złożone:
-nazwa_klienta, data_zamowienia
-nazwa_klienta, nazwa_produktu 
+nazwa_klienta, data_zamowienia, id_produktu
+nazwa_klienta, nazwa_produktu, data_zamowienia 
 
 Zad. 3
 
