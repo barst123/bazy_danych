@@ -3,6 +3,7 @@ Zad. 1
 id_produktu->nazwa_produktu, cena_produktu, VAT
 id_klienta->nazwa_klienta, data_zamowienia, id_produktu
 suma_netto, VAT->suma_brutto
+cena_produktu, ilosc->suma_netto
 nazwa_produktu->VAT
 id_produktu, id_klienta->ilosc
 
