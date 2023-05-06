@@ -20,14 +20,12 @@ USE AdventureWorksLT2019;
 WITH CTE_2
 AS
 (
-	SELECT c.CompanyName+' ('+c.FirstName+' '+c.LastName+')' AS CompanyContact, sod.LineTotal AS LineTotal
+	SELECT c.CompanyName+' ('+c.FirstName+' '+c.LastName+')' AS CompanyContact, soh.TotalDue AS TotalDue
 	FROM SalesLT.Customer c
 	INNER JOIN SalesLT.SalesOrderHeader soh
 	ON c.CustomerID=soh.CustomerID
-	INNER JOIN SalesLT.SalesOrderDetail sod
-	ON soh.SalesOrderID=sod.SalesOrderID
 )
-SELECT CompanyContact, CAST(ROUND(SUM(LineTotal), 4) AS NUMERIC(16, 4)) AS Revenue
+SELECT CompanyContact, CAST(ROUND(SUM(TotalDue), 4) AS NUMERIC(16, 4)) AS Revenue
 FROM CTE_2
 GROUP BY CompanyContact;
 
