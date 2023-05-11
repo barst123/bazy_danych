@@ -122,20 +122,20 @@ SELECT
 	r.nazwisko+
 	', w dniu '+
 	SUBSTRING(CAST(r.data_ AS varchar), 9, 2)+'.'+SUBSTRING(CAST(r.data_ AS varchar), 6, 2)+'.'+SUBSTRING(CAST(r.data_ AS varchar), 1, 4)+
-	' otrzyma≥ pensjÍ ca≥kowita na kwotÍ '+
+	' otrzyma≈Ç pensjƒô ca≈Çkowita na kwotƒô '+
 	CAST(r.pensja_calkowita AS varchar)+
-	', gdzie wynagrodzenie zasadnicze wynosi≥o: '+
+	', gdzie wynagrodzenie zasadnicze wynosi≈Ço: '+
 	CAST(r.pensja AS varchar)+
-	' z≥, premia: '+
+	' z≈Ç, premia: '+
 	CAST(r.premia AS varchar)+
-	' z≥, nadgodziny: '+
+	' z≈Ç, nadgodziny: '+
 	CAST(r.nadgodziny AS varchar)+
-	' z≥.' 
+	' z≈Ç.' 
 	AS Raport
 FROM ksiegowosc.raport r;
 
 
---2 sposob (CTE) zastanow sie dlaczego po inner join jest inna kolejnosc niz po left join!!!
+--2 sposob (CTE)
 WITH raporcik
 AS
 (
@@ -168,12 +168,12 @@ SELECT
 	r.nazwisko+
 	', w dniu '+
 	SUBSTRING(CAST(r.data_ AS varchar), 9, 2)+'.'+SUBSTRING(CAST(r.data_ AS varchar), 6, 2)+'.'+SUBSTRING(CAST(r.data_ AS varchar), 1, 4)+
-	' otrzyma≥ pensjÍ ca≥kowita na kwotÍ '+
+	' otrzyma≈Ç pensjƒô ca≈Çkowita na kwotƒô '+
 	CAST(r.pensja_calkowita AS varchar)+
-	', gdzie wynagrodzenie zasadnicze wynosi≥o: '+
-	CAST(r.pensja AS varchar)+' z≥, premia: '+
-	CAST(r.premia AS varchar)+' z≥, nadgodziny: '+
+	', gdzie wynagrodzenie zasadnicze wynosi≈Ço: '+
+	CAST(r.pensja AS varchar)+' z≈Ç, premia: '+
+	CAST(r.premia AS varchar)+' z≈Ç, nadgodziny: '+
 	CAST(r.nadgodziny AS varchar)+
-	' z≥.' 
+	' z≈Ç.' 
 	AS Raport
 FROM raporcik r;
