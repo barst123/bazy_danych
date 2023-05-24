@@ -590,7 +590,6 @@ ORDER BY liczby.milion.liczba;
 
 --Testy
 --1
-SET STATISTICS TIME ON
 SELECT 
 	COUNT(*)
 FROM
@@ -599,10 +598,8 @@ INNER JOIN
 	tabela_stratygraficzna.TabelaStr t
 ON
 	m.liczba%95=CAST(RIGHT(t.ID_pietra, LEN(t.ID_pietra)-3) AS INT);
-SET STATISTICS TIME OFF
 
 --2
-SET STATISTICS TIME ON
 SELECT
 	COUNT(*)
 FROM
@@ -627,10 +624,8 @@ INNER JOIN
 	tabela_stratygraficzna.GeoEon geo_eo
 ON
 	geo_er.id_eon=geo_eo.id_eon;
-SET STATISTICS TIME OFF
 
 --3
-SET STATISTICS TIME ON
 SELECT
 	COUNT(*)
 FROM
@@ -643,16 +638,14 @@ WHERE
 		tabela_stratygraficzna.TabelaStr t
 	WHERE
 		m.liczba%95=CAST(RIGHT(t.ID_pietra, LEN(t.ID_pietra)-3) AS INT));
-SET STATISTICS TIME OFF
 
 --4
-SET STATISTICS TIME ON
 SELECT
 	COUNT(*)
 FROM
 	liczby.milion m
 WHERE
-	m.liczba%95=
+	m.liczba%95 IN
 	(SELECT
 		CAST(RIGHT(geo_p.id_pietro, LEN(geo_p.id_pietro)-3) AS INT)
 	FROM
@@ -673,4 +666,95 @@ WHERE
 		tabela_stratygraficzna.GeoEon geo_eo
 	ON
 		geo_er.id_eon=geo_eo.id_eon);
-SET STATISTICS TIME OFF
+
+--dodawanie indexow
+CREATE INDEX ix_geoeon_eon
+ON tabela_stratygraficzna.GeoEon(id_eon);
+
+CREATE INDEX ix_geoera_era
+ON tabela_stratygraficzna.GeoEra(id_era);
+
+CREATE INDEX ix_geoera_eon
+ON tabela_stratygraficzna.GeoEra(id_eon);
+
+CREATE INDEX ix_geookres_okres
+ON tabela_stratygraficzna.GeoOkres(id_okres);
+
+CREATE INDEX ix_geookres_era
+ON tabela_stratygraficzna.GeoOkres(id_era);
+
+CREATE INDEX ix_geoepoka_epoka
+ON tabela_stratygraficzna.GeoEpoka(id_epoka);
+
+CREATE INDEX ix_geoepoka_okres
+ON tabela_stratygraficzna.GeoEpoka(id_okres);
+
+CREATE INDEX ix_geopietro_pietro
+ON tabela_stratygraficzna.GeoPietro(id_pietro);
+
+CREATE INDEX ix_geopietro_epoka
+ON tabela_stratygraficzna.GeoPietro(id_epoka);
+
+CREATE INDEX ix_tabelastr_pietro
+ON tabela_stratygraficzna.TabelaStr(ID_pietra);
+
+CREATE INDEX ix_tabelastr_epoka
+ON tabela_stratygraficzna.TabelaStr(ID_epoki);
+
+CREATE INDEX ix_tabelastr_okres
+ON tabela_stratygraficzna.TabelaStr(ID_okresu);
+
+CREATE INDEX ix_tabelastr_era
+ON tabela_stratygraficzna.TabelaStr(ID_ery);
+
+CREATE INDEX ix_tabelastr_eon
+ON tabela_stratygraficzna.TabelaStr(ID_eonu);
+
+CREATE INDEX ix_milion_liczba
+ON liczby.milion(liczba);
+
+--usuwanie indexow
+DROP INDEX ix_geoeon_eon
+ON tabela_stratygraficzna.GeoEon;
+
+DROP INDEX ix_geoera_era
+ON tabela_stratygraficzna.GeoEra;
+
+DROP INDEX ix_geoera_eon
+ON tabela_stratygraficzna.GeoEra;
+
+DROP INDEX ix_geookres_okres
+ON tabela_stratygraficzna.GeoOkres;
+
+DROP INDEX ix_geookres_era
+ON tabela_stratygraficzna.GeoOkres;
+
+DROP INDEX ix_geoepoka_epoka
+ON tabela_stratygraficzna.GeoEpoka;
+
+DROP INDEX ix_geoepoka_okres
+ON tabela_stratygraficzna.GeoEpoka;
+
+DROP INDEX ix_geopietro_pietro
+ON tabela_stratygraficzna.GeoPietro;
+
+DROP INDEX ix_geopietro_epoka
+ON tabela_stratygraficzna.GeoPietro;
+
+DROP INDEX ix_tabelastr_pietro
+ON tabela_stratygraficzna.TabelaStr;
+
+DROP INDEX ix_tabelastr_epoka
+ON tabela_stratygraficzna.TabelaStr;
+
+DROP INDEX ix_tabelastr_okres
+ON tabela_stratygraficzna.TabelaStr;
+
+DROP INDEX ix_tabelastr_era
+ON tabela_stratygraficzna.TabelaStr;
+
+DROP INDEX ix_tabelastr_eon
+ON tabela_stratygraficzna.TabelaStr;
+
+DROP INDEX ix_milion_liczba
+ON liczby.milion;
