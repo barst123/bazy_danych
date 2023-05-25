@@ -54,18 +54,18 @@ REFERENCES tabela_stratygraficzna.GeoEpoka(id_epoka);
 --wprowadzanie danych
 
 --Eon
-INSERT INTO tabela_stratygraficzna.GeoEon
-VALUES('EON1', 'Fanerozoik');
+INSERT INTO 
+	tabela_stratygraficzna.GeoEon
+VALUES
+	('EON1', 'Fanerozoik');
 
 --Era
-INSERT INTO tabela_stratygraficzna.GeoEra
-VALUES('ERA1', 'EON1', 'Paleozoik');
-
-INSERT INTO tabela_stratygraficzna.GeoEra
-VALUES('ERA2', 'EON1', 'Mezozoik');
-
-INSERT INTO tabela_stratygraficzna.GeoEra
-VALUES('ERA3', 'EON1', 'Kenozoik');
+INSERT INTO 
+	tabela_stratygraficzna.GeoEra
+VALUES
+	('ERA1', 'EON1', 'Paleozoik'),
+	('ERA2', 'EON1', 'Mezozoik'),
+	('ERA3', 'EON1', 'Kenozoik');
 
 --Okres
 INSERT INTO tabela_stratygraficzna.GeoOkres

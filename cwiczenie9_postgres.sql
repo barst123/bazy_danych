@@ -64,446 +64,177 @@ REFERENCES tabela_stratygraficzna.GeoEpoka(id_epoka);
 --wprowadzanie danych
 
 --Eon
-INSERT INTO tabela_stratygraficzna.GeoEon
-VALUES('EON1', 'Fanerozoik');
+INSERT INTO 
+	tabela_stratygraficzna.GeoEon
+VALUES
+	('EON1', 'Fanerozoik');
 
 --Era
-INSERT INTO tabela_stratygraficzna.GeoEra
-VALUES('ERA1', 'EON1', 'Paleozoik');
-
-INSERT INTO tabela_stratygraficzna.GeoEra
-VALUES('ERA2', 'EON1', 'Mezozoik');
-
-INSERT INTO tabela_stratygraficzna.GeoEra
-VALUES('ERA3', 'EON1', 'Kenozoik');
+INSERT INTO 
+	tabela_stratygraficzna.GeoEra
+VALUES
+	('ERA1', 'EON1', 'Paleozoik'),
+	('ERA2', 'EON1', 'Mezozoik'),
+	('ERA3', 'EON1', 'Kenozoik');
 
 --Okres
-INSERT INTO tabela_stratygraficzna.GeoOkres
-VALUES('OKR1', 'ERA1', 'Kambr');
-
-INSERT INTO tabela_stratygraficzna.GeoOkres
-VALUES('OKR2', 'ERA1', 'Ordowik');
-
-INSERT INTO tabela_stratygraficzna.GeoOkres
-VALUES('OKR3', 'ERA1', 'Sylur');
-
-INSERT INTO tabela_stratygraficzna.GeoOkres
-VALUES('OKR4', 'ERA1', 'Dewon');
-
-INSERT INTO tabela_stratygraficzna.GeoOkres
-VALUES('OKR5', 'ERA1', 'Karbon');
-
-INSERT INTO tabela_stratygraficzna.GeoOkres
-VALUES('OKR6', 'ERA1', 'Perm');
-
-INSERT INTO tabela_stratygraficzna.GeoOkres
-VALUES('OKR7', 'ERA2', 'Trias');
-
-INSERT INTO tabela_stratygraficzna.GeoOkres
-VALUES('OKR8', 'ERA2', 'Jura');
-
-INSERT INTO tabela_stratygraficzna.GeoOkres
-VALUES('OKR9', 'ERA2', 'Kreda');
-
-INSERT INTO tabela_stratygraficzna.GeoOkres
-VALUES('OKR10', 'ERA3', 'Paleogen');
-
-INSERT INTO tabela_stratygraficzna.GeoOkres
-VALUES('OKR11', 'ERA3', 'Neogen');
-
-INSERT INTO tabela_stratygraficzna.GeoOkres
-VALUES('OKR12', 'ERA3', 'Czwartorzed');
+INSERT INTO 
+	tabela_stratygraficzna.GeoOkres
+VALUES
+	('OKR1', 'ERA1', 'Kambr'),
+	('OKR2', 'ERA1', 'Ordowik'),
+	('OKR3', 'ERA1', 'Sylur'),
+	('OKR4', 'ERA1', 'Dewon'),
+	('OKR5', 'ERA1', 'Karbon'),
+	('OKR6', 'ERA1', 'Perm'),
+	('OKR7', 'ERA2', 'Trias'),
+	('OKR8', 'ERA2', 'Jura'),
+	('OKR9', 'ERA2', 'Kreda'),
+	('OKR10', 'ERA3', 'Paleogen'),
+	('OKR11', 'ERA3', 'Neogen'),
+	('OKR12', 'ERA3', 'Czwartorzed');
 
 --Epoka
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK1', 'OKR1', 'Terenew');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK2', 'OKR1', 'Oddzial 2 (Kambr)');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK3', 'OKR1', 'Oddzial 3 (Kambr)');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK4', 'OKR1', 'Furong');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK5', 'OKR2', 'Ordowik dolny');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK6', 'OKR2', 'Ordowik œrodkowy');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK7', 'OKR2', 'Ordowik górny');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK8', 'OKR3', 'Landower');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK9', 'OKR3', 'Wenlok');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK10', 'OKR3', 'Ludlow');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK11', 'OKR3', 'Przydol');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK12', 'OKR4', 'Dewon dolny');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK13', 'OKR4', 'Dewon srodkowy');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK14', 'OKR4', 'Dewon gorny');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK15', 'OKR5', 'Missisip');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK16', 'OKR5', 'Pensylwan');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK17', 'OKR6', 'Cisural');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK18', 'OKR6', 'Gwadalup');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK19', 'OKR6', 'Loping');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK20', 'OKR7', 'Trias dolny');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK21', 'OKR7', 'Trias srodkowy');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK22', 'OKR7', 'Trias gorny');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK23', 'OKR8', 'Jura dolna');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK24', 'OKR8', 'Jura srodkowa');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK25', 'OKR8', 'Jura gorna');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK26', 'OKR9', 'Kreda dolna');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK27', 'OKR9', 'Kreda gorna');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK28', 'OKR10', 'Paleocen');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK29', 'OKR10', 'Eocen');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK30', 'OKR10', 'Oligocen');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK31', 'OKR11', 'Miocen');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK32', 'OKR11', 'Pliocen');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK33', 'OKR12', 'Plejstocen');
-
-INSERT INTO tabela_stratygraficzna.GeoEpoka
-VALUES('EPK34', 'OKR12', 'Holocen');
+INSERT INTO 
+	tabela_stratygraficzna.GeoEpoka
+VALUES
+	('EPK1', 'OKR1', 'Terenew'),
+	('EPK2', 'OKR1', 'Oddzial 2 (Kambr)'),
+	('EPK3', 'OKR1', 'Oddzial 3 (Kambr)'),
+	('EPK4', 'OKR1', 'Furong'),
+	('EPK5', 'OKR2', 'Ordowik dolny'),
+	('EPK6', 'OKR2', 'Ordowik srodkowy'),
+	('EPK7', 'OKR2', 'Ordowik gorny'),
+	('EPK8', 'OKR3', 'Landower'),
+	('EPK9', 'OKR3', 'Wenlok'),
+	('EPK10', 'OKR3', 'Ludlow'),
+	('EPK11', 'OKR3', 'Przydol'),
+	('EPK12', 'OKR4', 'Dewon dolny'),
+	('EPK13', 'OKR4', 'Dewon srodkowy'),
+	('EPK14', 'OKR4', 'Dewon gorny'),
+	('EPK15', 'OKR5', 'Missisip'),
+	('EPK16', 'OKR5', 'Pensylwan'),
+	('EPK17', 'OKR6', 'Cisural'),
+	('EPK18', 'OKR6', 'Gwadalup'),
+	('EPK19', 'OKR6', 'Loping'),
+	('EPK20', 'OKR7', 'Trias dolny'),
+	('EPK21', 'OKR7', 'Trias srodkowy'),
+	('EPK22', 'OKR7', 'Trias gorny'),
+	('EPK23', 'OKR8', 'Jura dolna'),
+	('EPK24', 'OKR8', 'Jura srodkowa'),
+	('EPK25', 'OKR8', 'Jura gorna'),
+	('EPK26', 'OKR9', 'Kreda dolna'),
+	('EPK27', 'OKR9', 'Kreda gorna'),
+	('EPK28', 'OKR10', 'Paleocen'),
+	('EPK29', 'OKR10', 'Eocen'),
+	('EPK30', 'OKR10', 'Oligocen'),
+	('EPK31', 'OKR11', 'Miocen'),
+	('EPK32', 'OKR11', 'Pliocen'),
+	('EPK33', 'OKR12', 'Plejstocen'),
+	('EPK34', 'OKR12', 'Holocen');
 
 --Piêtro
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE1', 'EPK1', 'Fortun');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE2', 'EPK1', 'Pietro 2 (Kambr)');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE3', 'EPK2', 'Pietro 3 (Kambr)');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE4', 'EPK2', 'Pietro 4 (Kambr)');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE5', 'EPK3', 'Pietro 5 (Kambr)');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE6', 'EPK3', 'Drum');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE7', 'EPK3', 'Guzang');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE8', 'EPK4', 'Paib');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE9', 'EPK4', 'Jiangshan');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE10', 'EPK4', 'Pietro 10 (Kambr)');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE11', 'EPK5', 'Tremadok');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE12', 'EPK5', 'Flo');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE13', 'EPK6', 'Daping');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE14', 'EPK6', 'Darriwil');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE15', 'EPK7', 'Sandb');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE16', 'EPK7', 'Kat');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE17', 'EPK7', 'Hirnant');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE18', 'EPK8', 'Rhuddan');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE19', 'EPK8', 'Aeron');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE20', 'EPK8', 'Telych');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE21', 'EPK9', 'Sheinwood');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE22', 'EPK9', 'Homer');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE23', 'EPK10', 'Gorst');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE24', 'EPK10', 'Ludford');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE25', 'EPK11', '');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE26', 'EPK12', 'Lochkow');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE27', 'EPK12', 'Prag');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE28', 'EPK12', 'Ems');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE29', 'EPK13', 'Eifel');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE30', 'EPK13', 'Zywet');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE31', 'EPK14', 'Fran');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE32', 'EPK14', 'Famen');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE33', 'EPK15', '');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE34', 'EPK16', '');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE35', 'EPK17', 'Aselsk');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE36', 'EPK17', 'Sakmar');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE37', 'EPK17', 'Artynsk');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE38', 'EPK17', 'Kungur');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE39', 'EPK18', 'Road');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE40', 'EPK18', 'Word');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE41', 'EPK18', 'Kapitan');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE42', 'EPK19', 'Wucziaping');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE43', 'EPK19', 'Czangszing');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE44', 'EPK20', 'Ind');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE45', 'EPK20', 'Olenek');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE46', 'EPK21', 'Anizyk');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE47', 'EPK21', 'Ladyn');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE48', 'EPK22', 'Karnik');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE49', 'EPK22', 'Noryk');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE50', 'EPK22', 'Retyk');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE51', 'EPK23', 'Hetang');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE52', 'EPK23', 'Synemur');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE53', 'EPK23', 'Pliensbach');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE54', 'EPK23', 'Toark');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE55', 'EPK24', 'Aalen');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE56', 'EPK24', 'Bajos');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE57', 'EPK24', 'Baton');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE58', 'EPK24', 'Kelowej');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE59', 'EPK25', 'Oksford');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE60', 'EPK25', 'Kimeryd');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE61', 'EPK25', 'Tyton');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE62', 'EPK26', 'Berias');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE63', 'EPK26', 'Walanzyn');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE64', 'EPK26', 'Hoteryw');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE65', 'EPK26', 'Barrem');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE66', 'EPK26', 'Apt');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE67', 'EPK26', 'Alb');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE68', 'EPK27', 'Cenoman');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE69', 'EPK27', 'Turon');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE70', 'EPK27', 'Koniak');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE71', 'EPK27', 'Santon');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE72', 'EPK27', 'Kampan');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE73', 'EPK27', 'Mastrycht');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE74', 'EPK28', 'Dan');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE75', 'EPK28', 'Zeland');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE76', 'EPK28', 'Tanet');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE77', 'EPK29', 'Iprez');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE78', 'EPK29', 'Lutet');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE79', 'EPK29', 'Barton');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE80', 'EPK29', 'Priabon');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE81', 'EPK30', 'Rupel');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE82', 'EPK30', 'Szat');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE83', 'EPK31', 'Akwitan');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE84', 'EPK31', 'Burdygal');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE85', 'EPK31', 'Lang');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE86', 'EPK31', 'Serrawal');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE87', 'EPK31', 'Torton');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE88', 'EPK31', 'Messyn');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE89', 'EPK32', 'Zankl');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE90', 'EPK32', 'Piacent');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE91', 'EPK33', 'Gelas');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE92', 'EPK33', 'Kalabr');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE93', 'EPK33', 'Jon');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE94', 'EPK33', 'Plejstocen gorny');
-
-INSERT INTO tabela_stratygraficzna.GeoPietro
-VALUES('PIE95', 'EPK34', '');
+INSERT INTO 
+	tabela_stratygraficzna.GeoPietro
+VALUES
+	('PIE1', 'EPK1', 'Fortun'),
+	('PIE2', 'EPK1', 'Pietro 2 (Kambr)'),
+	('PIE3', 'EPK2', 'Pietro 3 (Kambr)'),
+	('PIE4', 'EPK2', 'Pietro 4 (Kambr)'),
+	('PIE5', 'EPK3', 'Pietro 5 (Kambr)'),
+	('PIE6', 'EPK3', 'Drum'),
+	('PIE7', 'EPK3', 'Guzang'),
+	('PIE8', 'EPK4', 'Paib'),
+	('PIE9', 'EPK4', 'Jiangshan'),
+	('PIE10', 'EPK4', 'Pietro 10 (Kambr)'),
+	('PIE11', 'EPK5', 'Tremadok'),
+	('PIE12', 'EPK5', 'Flo'),
+	('PIE13', 'EPK6', 'Daping'),
+	('PIE14', 'EPK6', 'Darriwil'),
+	('PIE15', 'EPK7', 'Sandb'),
+	('PIE16', 'EPK7', 'Kat'),
+	('PIE17', 'EPK7', 'Hirnant'),
+	('PIE18', 'EPK8', 'Rhuddan'),
+	('PIE19', 'EPK8', 'Aeron'),
+	('PIE20', 'EPK8', 'Telych'),
+	('PIE21', 'EPK9', 'Sheinwood'),
+	('PIE22', 'EPK9', 'Homer'),
+	('PIE23', 'EPK10', 'Gorst'),
+	('PIE24', 'EPK10', 'Ludford'),
+	('PIE25', 'EPK11', ''),
+	('PIE26', 'EPK12', 'Lochkow'),
+	('PIE27', 'EPK12', 'Prag'),
+	('PIE28', 'EPK12', 'Ems'),
+	('PIE29', 'EPK13', 'Eifel'),
+	('PIE30', 'EPK13', 'Zywet'),
+	('PIE31', 'EPK14', 'Fran'),
+	('PIE32', 'EPK14', 'Famen'),
+	('PIE33', 'EPK15', ''),
+	('PIE34', 'EPK16', ''),
+	('PIE35', 'EPK17', 'Aselsk'),
+	('PIE36', 'EPK17', 'Sakmar'),
+	('PIE37', 'EPK17', 'Artynsk'),
+	('PIE38', 'EPK17', 'Kungur'),
+	('PIE39', 'EPK18', 'Road'),
+	('PIE40', 'EPK18', 'Word'),
+	('PIE41', 'EPK18', 'Kapitan'),
+	('PIE42', 'EPK19', 'Wucziaping'),
+	('PIE43', 'EPK19', 'Czangszing'),
+	('PIE44', 'EPK20', 'Ind'),
+	('PIE45', 'EPK20', 'Olenek'),
+	('PIE46', 'EPK21', 'Anizyk'),
+	('PIE47', 'EPK21', 'Ladyn'),
+	('PIE48', 'EPK22', 'Karnik'),
+	('PIE49', 'EPK22', 'Noryk'),
+	('PIE50', 'EPK22', 'Retyk'),
+	('PIE51', 'EPK23', 'Hetang'),
+	('PIE52', 'EPK23', 'Synemur'),
+	('PIE53', 'EPK23', 'Pliensbach'),
+	('PIE54', 'EPK23', 'Toark'),
+	('PIE55', 'EPK24', 'Aalen'),
+	('PIE56', 'EPK24', 'Bajos'),
+	('PIE57', 'EPK24', 'Baton'),
+	('PIE58', 'EPK24', 'Kelowej'),
+	('PIE59', 'EPK25', 'Oksford'),
+	('PIE60', 'EPK25', 'Kimeryd'),
+	('PIE61', 'EPK25', 'Tyton'),
+	('PIE62', 'EPK26', 'Berias'),
+	('PIE63', 'EPK26', 'Walanzyn'),
+	('PIE64', 'EPK26', 'Hoteryw'),
+	('PIE65', 'EPK26', 'Barrem'),
+	('PIE66', 'EPK26', 'Apt'),
+	('PIE67', 'EPK26', 'Alb'),
+	('PIE68', 'EPK27', 'Cenoman'),
+	('PIE69', 'EPK27', 'Turon'),
+	('PIE70', 'EPK27', 'Koniak'),
+	('PIE71', 'EPK27', 'Santon'),
+	('PIE72', 'EPK27', 'Kampan'),
+	('PIE73', 'EPK27', 'Mastrycht'),
+	('PIE74', 'EPK28', 'Dan'),
+	('PIE75', 'EPK28', 'Zeland'),
+	('PIE76', 'EPK28', 'Tanet'),
+	('PIE77', 'EPK29', 'Iprez'),
+	('PIE78', 'EPK29', 'Lutet'),
+	('PIE79', 'EPK29', 'Barton'),
+	('PIE80', 'EPK29', 'Priabon'),
+	('PIE81', 'EPK30', 'Rupel'),
+	('PIE82', 'EPK30', 'Szat'),
+	('PIE83', 'EPK31', 'Akwitan'),
+	('PIE84', 'EPK31', 'Burdygal'),
+	('PIE85', 'EPK31', 'Lang'),
+	('PIE86', 'EPK31', 'Serrawal'),
+	('PIE87', 'EPK31', 'Torton'),
+	('PIE88', 'EPK31', 'Messyn'),
+	('PIE89', 'EPK32', 'Zankl'),
+	('PIE90', 'EPK32', 'Piacent'),
+	('PIE91', 'EPK33', 'Gelas'),
+	('PIE92', 'EPK33', 'Kalabr'),
+	('PIE93', 'EPK33', 'Jon'),
+	('PIE94', 'EPK33', 'Plejstocen gorny'),
+	('PIE95', 'EPK34', '');
 
 --3. Konstrukcja wymiary geochronologicznego
+DROP TABLE tabela_stratygraficzna.TabelaStr
 SELECT
 	geo_p.id_pietro AS ID_pietra,
 	geo_p.nazwa_pietro AS Pietro,
@@ -519,22 +250,14 @@ INTO
 	tabela_stratygraficzna.TabelaStr
 FROM
 	tabela_stratygraficzna.GeoPietro geo_p
-INNER JOIN 
+NATURAL JOIN 
 	tabela_stratygraficzna.GeoEpoka geo_ep
-ON
-	geo_p.id_epoka=geo_ep.id_epoka
-INNER JOIN
+NATURAL JOIN
 	tabela_stratygraficzna.GeoOkres geo_o
-ON
-	geo_ep.id_okres=geo_o.id_okres
-INNER JOIN
+NATURAL JOIN
 	tabela_stratygraficzna.GeoEra geo_er
-ON
-	geo_o.id_era=geo_er.id_era
-INNER JOIN
-	tabela_stratygraficzna.GeoEon geo_eo
-ON
-	geo_er.id_eon=geo_eo.id_eon;
+NATURAL JOIN
+	tabela_stratygraficzna.GeoEon geo_eo;
 
 ALTER TABLE tabela_stratygraficzna.TabelaStr
 ADD PRIMARY KEY(ID_pietra);
@@ -618,22 +341,14 @@ INNER JOIN
 	tabela_stratygraficzna.GeoPietro geo_p
 ON
 	m.liczba%95=CAST(RIGHT(geo_p.id_pietro, LENGTH(geo_p.id_pietro)-3) AS INT)
-INNER JOIN 
+NATURAL JOIN 
 	tabela_stratygraficzna.GeoEpoka geo_ep
-ON
-	geo_p.id_epoka=geo_ep.id_epoka
-INNER JOIN
+NATURAL JOIN
 	tabela_stratygraficzna.GeoOkres geo_o
-ON
-	geo_ep.id_okres=geo_o.id_okres
-INNER JOIN
+NATURAL JOIN
 	tabela_stratygraficzna.GeoEra geo_er
-ON
-	geo_o.id_era=geo_er.id_era
-INNER JOIN
-	tabela_stratygraficzna.GeoEon geo_eo
-ON
-	geo_er.id_eon=geo_eo.id_eon;
+NATURAL JOIN
+	tabela_stratygraficzna.GeoEon geo_eo;
 
 --3
 SELECT
@@ -660,22 +375,14 @@ WHERE
 		CAST(RIGHT(geo_p.id_pietro, LENGTH(geo_p.id_pietro)-3) AS INT)
 	FROM
 		tabela_stratygraficzna.GeoPietro geo_p
-	INNER JOIN 
+	NATURAL JOIN 
 		tabela_stratygraficzna.GeoEpoka geo_ep
-	ON
-		geo_p.id_epoka=geo_ep.id_epoka
-	INNER JOIN
+	NATURAL JOIN
 		tabela_stratygraficzna.GeoOkres geo_o
-	ON
-		geo_ep.id_okres=geo_o.id_okres
-	INNER JOIN
+	NATURAL JOIN
 		tabela_stratygraficzna.GeoEra geo_er
-	ON
-		geo_o.id_era=geo_er.id_era
-	INNER JOIN
-		tabela_stratygraficzna.GeoEon geo_eo
-	ON
-		geo_er.id_eon=geo_eo.id_eon);
+	NATURAL JOIN
+		tabela_stratygraficzna.GeoEon geo_eo);
 		
 --Dodawanie indexow
 CREATE INDEX ix_geoeon_eon

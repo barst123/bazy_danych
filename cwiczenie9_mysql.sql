@@ -1,5 +1,5 @@
-CREATE DATABASE stratygrafia;
-USE stratygrafia;
+CREATE DATABASE stratygrafia_4;
+USE stratygrafia_4;
 
 CREATE SCHEMA tabela_stratygraficzna;
 
@@ -32,7 +32,7 @@ CREATE TABLE tabela_stratygraficzna.GeoPietro(
 	nazwa_pietro VARCHAR(40) NOT NULL
 );
 
-#tworzenie referencji
+#tworzenie referencji - mysql tworzy indeksy dla kluczy obcych!!!
 
 ALTER TABLE tabela_stratygraficzna.GeoEra
 ADD FOREIGN KEY (id_eon)
@@ -607,22 +607,14 @@ INNER JOIN
 	tabela_stratygraficzna.GeoPietro geo_p
 ON
 	m.liczba%95=CAST(RIGHT(geo_p.id_pietro, LENGTH(geo_p.id_pietro)-3) AS UNSIGNED)
-INNER JOIN 
+NATURAL JOIN 
 	tabela_stratygraficzna.GeoEpoka geo_ep
-ON
-	geo_p.id_epoka=geo_ep.id_epoka
-INNER JOIN
+NATURAL JOIN
 	tabela_stratygraficzna.GeoOkres geo_o
-ON
-	geo_ep.id_okres=geo_o.id_okres
-INNER JOIN
+NATURAL JOIN
 	tabela_stratygraficzna.GeoEra geo_er
-ON
-	geo_o.id_era=geo_er.id_era
-INNER JOIN
-	tabela_stratygraficzna.GeoEon geo_eo
-ON
-	geo_er.id_eon=geo_eo.id_eon;
+NATURAL JOIN
+	tabela_stratygraficzna.GeoEon geo_eo;
 
 #3
 SELECT
@@ -649,22 +641,14 @@ WHERE
 		CAST(RIGHT(geo_p.id_pietro, LENGTH(geo_p.id_pietro)-3) AS UNSIGNED)
 	FROM
 		tabela_stratygraficzna.GeoPietro geo_p
-	INNER JOIN 
+	NATURAL JOIN 
 		tabela_stratygraficzna.GeoEpoka geo_ep
-	ON
-		geo_p.id_epoka=geo_ep.id_epoka
-	INNER JOIN
+	NATURAL JOIN
 		tabela_stratygraficzna.GeoOkres geo_o
-	ON
-		geo_ep.id_okres=geo_o.id_okres
-	INNER JOIN
+	NATURAL JOIN
 		tabela_stratygraficzna.GeoEra geo_er
-	ON
-		geo_o.id_era=geo_er.id_era
-	INNER JOIN
-		tabela_stratygraficzna.GeoEon geo_eo
-	ON
-		geo_er.id_eon=geo_eo.id_eon);
+	NATURAL JOIN
+		tabela_stratygraficzna.GeoEon geo_eo);
 		
 #Dodawanie indexow - mysql tworzy automatycznie na kluczu obcym indexy
 CREATE INDEX ix_geoeon_eon
@@ -718,13 +702,25 @@ ON tabela_stratygraficzna.GeoEon;
 DROP INDEX ix_geoera_era
 ON tabela_stratygraficzna.GeoEra;
 
+DROP INDEX ix_geoera_eon
+ON tabela_stratygraficzna.GeoEra;
+
 DROP INDEX ix_geookres_okres
+ON tabela_stratygraficzna.GeoOkres;
+
+DROP INDEX ix_geookres_era
 ON tabela_stratygraficzna.GeoOkres;
 
 DROP INDEX ix_geoepoka_epoka
 ON tabela_stratygraficzna.GeoEpoka;
 
+DROP INDEX ix_geoepoka_okres
+ON tabela_stratygraficzna.GeoEpoka;
+
 DROP INDEX ix_geopietro_pietro
+ON tabela_stratygraficzna.GeoPietro;
+
+DROP INDEX ix_geopietro_epoka
 ON tabela_stratygraficzna.GeoPietro;
 
 DROP INDEX ix_tabelastr_pietro
