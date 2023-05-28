@@ -1,0 +1,125 @@
+USE AdventureWorks2019;
+CREATE SCHEMA cw7;
+
+--zad 1
+GO
+CREATE PROCEDURE cw7.fibonacci (@n INT)
+AS
+	BEGIN
+		DECLARE 
+			@f1 INT =0,
+			@f2 INT =1,
+			@i INT =2,
+			@f3 INT;
+		PRINT (@f1);
+		PRINT (@f2);
+		WHILE @i<=@n
+			BEGIN
+				SET @f3=@f1+@f2;
+				PRINT (@f3);
+				SET @f1=@f2;
+				SET @f2=@f3;
+				SET @i=@i+1;
+			END;
+	END;
+
+GO
+EXEC cw7.fibonacci 14;
+--zad 2
+CREATE TRIGGER Person.upper_surname
+ON Person.Person
+AFTER INSERT
+AS
+BEGIN
+	WITH CTE
+	AS
+	(
+		SELECT TOP(1) *
+		FROM
+			Person.Person
+		ORDER BY
+			BusinessEntityID DESC
+	)
+	UPDATE TOP(1) CTE
+	SET 
+		LastName=UPPER(LastName);
+END;
+
+
+INSERT INTO
+	Person.BusinessEntity(rowguid)
+VALUES
+	(NEWID());
+
+SELECT *
+FROM
+	Person.BusinessEntity
+ORDER BY
+	BusinessEntityID DESC;
+	
+DROP TRIGGER Person.upper_surname
+
+INSERT INTO 
+	Person.Person (BusinessEntityID, PersonType, FirstName, LastName)
+VALUES 
+	(20780, 'IN', 'Proba_trzecia', 'baab');
+
+SELECT * 
+FROM 
+	Person.Person
+ORDER BY
+	BusinessEntityID DESC;
+
+SELECT * INTO Person.PersonCopy FROM Person.PersonCopy
+
+
+--zad 3
+CREATE TRIGGER Sales.taxRateMonitoring
+ON Sales.SalesTaxRate
+INSTEAD OF UPDATE
+AS
+BEGIN
+	DECLARE
+		@oldTax SMALLMONEY,
+		@newTax SMALLMONEY;
+	SELECT @oldTax=TaxRate FROM deleted;
+	SELECT @newTax=TaxRate FROM inserted;
+	IF @newTax<(1.3*@oldTax) AND @newTax>(0.7*@oldTax)
+		BEGIN
+			(SELECT * 
+			INTO temporary
+			FROM INSERTED)
+			UNION
+			(SELECT * FROM Sales.SalesTaxRate
+			EXCEPT
+			SELECT * FROM DELETED)
+
+			UPDATE Sales.SalesTaxRate
+			SET
+				TaxRate=temp.TaxRate
+			FROM
+				Sales.SalesTaxRate tax,
+				temporary temp
+			WHERE
+				tax.SalesTaxRateID=temp.SalesTaxRateID;
+			
+			DROP TABLE temporary;
+		END;
+	ELSE
+		BEGIN
+			RAISERROR('Za duza zmiana podatku (>30 procent)!', 10, 1);
+		END;
+END;
+GO
+
+DROP TRIGGER Sales.taxRateMonitoring;
+
+UPDATE Sales.SalesTaxRate
+SET TaxRate=12
+WHERE TaxType=3;
+
+SELECT * 
+FROM Sales.SalesTaxRate;
+
+SELECT * 
+FROM Sales.SalesTaxRateCopy;
