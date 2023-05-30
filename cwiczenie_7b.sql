@@ -2,29 +2,41 @@ USE AdventureWorks2019;
 CREATE SCHEMA cw7;
 
 --zad 1
-GO
-CREATE PROCEDURE cw7.fibonacci (@n INT)
+CREATE FUNCTION cw7.generatefibonacci (@n INT)
+RETURNS @fib TABLE(
+		liczba INT
+		)
 AS
-	BEGIN
-		DECLARE 
-			@f1 INT =0,
-			@f2 INT =1,
-			@i INT =2,
-			@f3 INT;
-		PRINT (@f1);
-		PRINT (@f2);
-		WHILE @i<=@n
-			BEGIN
-				SET @f3=@f1+@f2;
-				PRINT (@f3);
-				SET @f1=@f2;
-				SET @f2=@f3;
-				SET @i=@i+1;
-			END;
-	END;
+BEGIN
+	DECLARE
+		@f1 INT =0,
+		@f2 INT =1,
+		@i INT =2,
+		@f3 INT;
+	INSERT INTO @fib
+	VALUES
+		(@f1),
+		(@f2);
+	WHILE @i<=@n
+		BEGIN
+			SET @f3=@f1+@f2;
+			SET @f1=@f2;
+			SET @f2=@f3;
+			SET @i=@i+1;
+			INSERT INTO @fib
+			VALUES (@f3);
+		END;
+	RETURN;
+END;
+
+ALTER PROCEDURE cw7.fibonacci (@n INT)
+AS
+BEGIN
+	SELECT * FROM cw7.generatefibonacci(@n);
+END;
 
 GO
-EXEC cw7.fibonacci 14;
+EXEC cw7.fibonacci 15;
 --zad 2
 CREATE TRIGGER Person.upper_surname
 ON Person.Person
@@ -74,7 +86,24 @@ SELECT * INTO Person.PersonCopy FROM Person.PersonCopy
 
 
 --zad 3
+
 CREATE TRIGGER Sales.taxRateMonitoring
+ON Sales.SalesTaxRate
+AFTER UPDATE
+AS
+BEGIN
+	DECLARE
+		@oldTax SMALLMONEY,
+		@newTax SMALLMONEY;
+	SELECT @oldTax=TaxRate FROM deleted;
+	SELECT @newTax=TaxRate FROM inserted;
+	IF @newTax>(1.3*@oldTax) OR @newTax<(0.7*@oldTax)
+		RAISERROR('Za duza zmiana podatku (>30 procent)!', 10, 1);
+END;
+GO
+
+
+CREATE TRIGGER Sales.taxRateMonitoring2
 ON Sales.SalesTaxRate
 INSTEAD OF UPDATE
 AS
@@ -88,11 +117,11 @@ BEGIN
 		BEGIN
 			(SELECT * 
 			INTO temporary
-			FROM INSERTED)
+			FROM inserted)
 			UNION
 			(SELECT * FROM Sales.SalesTaxRate
 			EXCEPT
-			SELECT * FROM DELETED)
+			SELECT * FROM deleted)
 
 			UPDATE Sales.SalesTaxRate
 			SET
@@ -107,7 +136,7 @@ BEGIN
 		END;
 	ELSE
 		BEGIN
-			RAISERROR('Za duza zmiana podatku (>30 procent)!', 10, 1);
+			RAISERROR('Za duza zmiana podatku (>30 procent)!', 11, 2);
 		END;
 END;
 GO
@@ -116,7 +145,7 @@ DROP TRIGGER Sales.taxRateMonitoring;
 
 UPDATE Sales.SalesTaxRate
 SET TaxRate=12
-WHERE TaxType=3;
+WHERE SalesTaxRateID=1;
 
 SELECT * 
 FROM Sales.SalesTaxRate;
