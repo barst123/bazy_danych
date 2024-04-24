@@ -1,5 +1,5 @@
 # SQL Databases/Bazy Danych
 
-Ćwiczenia wykonane na zajęciach w ramach przedmiotu Bazy Danych.
+PL: Ćwiczenia wykonane na zajęciach w ramach przedmiotu Bazy Danych.
 
-Learning SQL Basics.
+EN: Database exercises completed for the Database course.
